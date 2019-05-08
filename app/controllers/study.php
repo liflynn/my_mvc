@@ -32,7 +32,8 @@ Class study extends Fl_controller
     public function api()
     {
         $res = file_get_contents('php://input');
-        echo $res;
+        $res = json_decode($res,true);
+        ilog($res);
     }
 
     public function table_data()
