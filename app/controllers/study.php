@@ -14,7 +14,25 @@ Class study extends Fl_controller
 
     public function show()
     {
-        $this->view('test');
+        $this->load->view('test');
+    }
+
+    public function testApi()
+    {
+        $curl = $this->load->library('curl');
+        $data['url'] = 'http://flynn.test.com/study/api';
+        $data['data'] = json_encode(
+            array(
+                'test'=>123
+            )
+        );
+        $res = $curl->post($data);
+    }
+
+    public function api()
+    {
+        $res = file_get_contents('php://input');
+        echo $res;
     }
 
     public function table_data()
@@ -27,7 +45,7 @@ Class study extends Fl_controller
         $start = ($page-1)*$limit;
         $options['start'] = $start;
         $options['limit']  = $limit;
-        $contact_model = $this->model('contact');
+        $contact_model = $this->load->model('contact');
         $res = $contact_model->get_contact_list($options);
         echo json_encode($res);
     }

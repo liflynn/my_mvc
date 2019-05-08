@@ -10,7 +10,6 @@ function bubble_sort_asc($arr)
 {
     if(!is_array($arr)) return false;
     if(count($arr)<=1)  return $arr;
-
     $length = count($arr);
 
     for($i=0;$i<$length-1;$i++){

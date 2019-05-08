@@ -37,7 +37,6 @@ sql;
       where 1
       $where_clause
 sql;
-        ilog($sql);
         $res = $this->db->row_array($sql);
         return $res['count'];
     }
