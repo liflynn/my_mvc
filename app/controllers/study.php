@@ -15,6 +15,7 @@ Class study extends Fl_controller
     public function show()
     {
         $this->load->view('test');
+        $this->load->view('test1');
     }
 
     public function testApi()
